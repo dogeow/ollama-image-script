@@ -30,15 +30,25 @@ def _get_type_config(item_type: str):
     """获取指定类型的配置和项目列表。"""
     data = _load_prompts()
     type_data = data.get(item_type, {})
+    default_output_dir = str(Path("output") / item_type)
     cfg = {
         "width": type_data.get("width", config.DEFAULT_WIDTH),
         "height": type_data.get("height", config.DEFAULT_HEIGHT),
         "format": type_data.get("format", config.DEFAULT_FORMAT),
         "remove_bg": type_data.get("remove_bg", False),
-        "output_dir": type_data.get("output_dir", item_type),
+        "output_dir": type_data.get("output_dir") or default_output_dir,
     }
     items = type_data.get("items", [])
-    item_list = [(item["filename"], item["prompt"]) for item in items if "filename" in item and "prompt" in item]
+    pad_width = max(3, len(str(len(items)))) if items else 3
+    item_list = []
+    for index, item in enumerate(items, start=1):
+        if not isinstance(item, dict):
+            continue
+        prompt = item.get("prompt")
+        if not prompt:
+            continue
+        filename = item.get("filename") or f"{item_type}_{index:0{pad_width}d}"
+        item_list.append((filename, prompt))
     return cfg, item_list
 
 

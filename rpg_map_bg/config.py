@@ -17,6 +17,6 @@ MAX_RETRIES = int(os.environ.get("MAX_RETRIES", "600"))
 RETRY_DELAY = float(os.environ.get("RETRY_DELAY", "1.0"))
 
 # 默认图片参数
-DEFAULT_WIDTH = int(os.environ.get("DEFAULT_WIDTH", "128"))
-DEFAULT_HEIGHT = int(os.environ.get("DEFAULT_HEIGHT", "128"))
+DEFAULT_WIDTH = int(os.environ.get("DEFAULT_WIDTH", "512"))
+DEFAULT_HEIGHT = int(os.environ.get("DEFAULT_HEIGHT", "512"))
 DEFAULT_FORMAT = os.environ.get("DEFAULT_FORMAT", "png")
