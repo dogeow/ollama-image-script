@@ -1,16 +1,16 @@
-# 图片生成器
+# Image Generator
 
-用 Ollama CLI 生成图片，配置从 `prompts.json` 读取。
+Generate images with the Ollama CLI. Configuration is loaded from `prompts.json`.
 
-## 用法
+## Usage
 
 ```bash
-.venv/bin/python run.py all              # 生成所有类型
-.venv/bin/python  run.py <type>           # 生成指定类型全部
-.venv/bin/python  run.py <type> 5 10      # 生成指定类型的第5-10个
+.venv/bin/python run.py all              # Generate all configured types
+.venv/bin/python run.py <type>           # Generate all items for a specific type
+.venv/bin/python run.py <type> 5 10      # Generate items 5 through 10 for a type
 ```
 
-## prompts.json 格式
+## `prompts.json` Format
 
 ```json
 {
@@ -38,42 +38,43 @@
 }
 ```
 
-字段说明：
+Field reference:
 
-| 字段 | 说明 | 默认值 |
+| Field | Description | Default |
 |------|------|--------|
-| `width` | 图片宽度 | 128 |
-| `height` | 图片高度 | 128 |
-| `format` | 输出格式 (png/jpg) | png |
-| `remove_bg` | 是否用 rembg 抠图 | false |
-| `output_dir` | 输出目录（相对当前目录） | 类型名 |
-| `items` | 图片列表，每个包含 `filename` 和 `prompt` | [] |
+| `width` | Output image width | 128 |
+| `height` | Output image height | 128 |
+| `format` | Output format (`png`/`jpg`) | `png` |
+| `remove_bg` | Whether to remove the background with `rembg` | `false` |
+| `output_dir` | Output directory, relative to the current working directory | Type name |
+| `items` | Image entries, each with `filename` and `prompt` | `[]` |
 
-说明：
+Notes:
 
-- `ollama run` 会按模型默认尺寸出图，脚本再按 `width` / `height` 做居中裁剪和缩放，得到最终输出尺寸。
+- `ollama run` generates images at the model's default size. The script then center-crops and resizes the result to match `width` and `height`.
 
-## 环境变量
+## Environment Variables
 
-- `OLLAMA_MODEL`：生图模型（默认 `x/z-image-turbo`）
-- `THERMAL_THRESHOLD`：热等级 ≥ 此值则暂停（默认 1）
-- `PAUSE_SECONDS`：过热时每次暂停秒数（默认 90）
+- `OLLAMA_MODEL`: Image generation model. Default: `x/z-image-turbo`
+- `THERMAL_THRESHOLD`: Pause when the thermal level is greater than or equal to this value. Default: `1`
+- `PAUSE_SECONDS`: Number of seconds to wait when the machine is too hot. Default: `90`
 
-## 依赖
+## Dependencies
 
 - Python 3.9+
 - Ollama
-- rembg（可选，`remove_bg` 为 true 时需要）
+- `rembg` (optional, required only when `remove_bg` is `true`)
 
-## 目录结构
+## Directory Structure
 
 ```plaintext
 ollma-image-script/
-├── README.md
-├── run.py              # 入口脚本
-├── prompts.json.example # 配置示例
+├── README.md           # English documentation
+├── README_zh.md        # Chinese documentation
+├── run.py              # Entry script
+├── prompts.json.example # Example configuration
 ├── .gitignore
-└── rpg_map_bg/         # 核心模块
+└── rpg_map_bg/         # Core module
     ├── __init__.py
     ├── __main__.py
     ├── config.py
