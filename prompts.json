@@ -1,0 +1,50 @@
+{
+  "maps": {
+    "width": 640,
+    "height": 360,
+    "format": "jpg",
+    "remove_bg": false,
+    "output_dir": "output/bg",
+    "items": [
+      {"filename": "safe-training-camp", "prompt": "RPG game background, safe training camp, green meadow with flowers, tents and banners, wooden fences, warm sunlight, peaceful atmosphere, detailed environment, depth of field"},
+      {"filename": "dark-enchanted-forest", "prompt": "RPG game background, dark enchanted forest, ancient gnarled trees, dappled shadow, distant wolves, moss and roots, moody atmosphere, volumetric light through canopy"},
+      {"filename": "goblin-cave-lair", "prompt": "RPG game background, goblin cave lair, rocky entrance with torches, bones and crates, fire glow, damp stone texture, foreboding mood, detailed cavern"}
+    ]
+  },
+  "skills": {
+    "width": 128,
+    "height": 128,
+    "format": "png",
+    "remove_bg": false,
+    "output_dir": "output/skills",
+    "items": [
+      {"filename": "slash", "prompt": "RPG skill icon, heavy strike, sword slash motion blur, warrior attack, metallic gleam, impact lines, detailed game UI icon, square, dark background"},
+      {"filename": "battle-roar", "prompt": "RPG skill icon, battle roar, war cry sound waves, warrior buff, radiating energy, fierce aura, detailed fantasy icon, square frame, dark background"},
+      {"filename": "fireball", "prompt": "RPG skill icon, fireball spell, burning orb with flames, mage attack, ember particles, orange glow, detailed magic icon, square, dark background"}
+    ]
+  },
+  "monsters": {
+    "width": 128,
+    "height": 128,
+    "format": "png",
+    "remove_bg": false,
+    "output_dir": "output/monsters",
+    "items": [
+      {"filename": "wild-boar", "prompt": "RPG monster portrait, wild boar, detailed fur texture, tusks, fierce expression, dynamic pose, soft lighting, game character art, square composition, dark background"},
+      {"filename": "wild-wolf", "prompt": "RPG monster portrait, wild wolf, muscular beast, sharp fangs, detailed fur, aggressive stance, atmospheric shading, fantasy game art, square frame, dark background"},
+      {"filename": "forest-goblin", "prompt": "RPG monster portrait, forest goblin, green skin texture, large ears, cunning expression, detailed armor or rags, menacing pose, RPG character design, square, dark background"}
+    ]
+  },
+  "items": {
+    "width": 128,
+    "height": 128,
+    "format": "png",
+    "remove_bg": true,
+    "output_dir": "output/items",
+    "items": [
+      {"filename": "beginner-sword", "prompt": "RPG item icon, beginner sword, simple blade, metallic sheen, leather grip, detailed game item, soft shading, square, transparent background"},
+      {"filename": "health-potion", "prompt": "RPG item icon, small red health potion, one medium glass bottle, palm-sized vessel, crimson liquid, label, detailed game item, soft shading, square, transparent background"},
+      {"filename": "mana-potion", "prompt": "RPG item icon, small blue mana potion, one medium glass bottle, palm-sized vessel, azure liquid, label, detailed game item, soft shading, square, transparent background"}
+    ]
+  }
+}
